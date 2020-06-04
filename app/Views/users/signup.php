@@ -31,8 +31,8 @@
         <span class="invalid-feedback"><?php echo $validation->getError('confirm_password'); ?></span>
       </div>
 
-      <div class="d-flex mt-3 justify-content-between">
-        <?php echo form_submit('mysubmit', 'Sign Up', ['class' => 'btn btn-success']) ?>
+      <div class="d-flex mt-3 justify-content-between submit">
+        <?php echo form_submit('mysubmit', 'Sign Up', ['class' => 'btn btn-success mb-3']) ?>
         <a href="<?= base_url('/users/users/login'); ?>" class="btn btn-dark">Already Have An Account? Login...</a>
       </div>
     <?= form_close(); ?>

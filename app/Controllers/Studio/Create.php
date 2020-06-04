@@ -29,7 +29,7 @@
       $file = $this->request->getFile('video');
       if ($file) {
         $type = $file->getClientMimeType('video'); 
-        if ($type && $type != ('video/mp4' || 'video/webm' || 'video/mkv')) {
+        if ($type && $type != 'video/mp4') {
           $data['error'] = 'Invalid File';
         } else if ($file->getSize() > 2048000000000) {
           $data['error'] = 'File Too Big';

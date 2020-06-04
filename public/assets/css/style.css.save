@@ -424,6 +424,12 @@ video, #video_cont:focus {
   .media-body h5 {
     font-size: 17px !important;
      
+}
+
+   .media-body {
+
+      
+
   }
 
   .viewNavbar { /*min-width: 360px !important;*/
@@ -468,22 +474,3 @@ video, #video_cont:focus {
   
 }
 
-@media(max-width: 340px) {
- 
-  .media {
-
-    flex-wrap: wrap !important;
-    justify-content: center !important; 
-    
-}
-
- .display-4 {
-  
-    font-size: 2.8rem !important;
-
-
-}
-
-
- 
-}

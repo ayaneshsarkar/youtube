@@ -7,7 +7,7 @@
 ?>
 <?php use CodeIgniter\I18n\Time; ?>
 
-  <div id="home" class="my-5 py-4">
+  <div id="home" class="my-5 my-sm-2 my-xs-2 py-3">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12">

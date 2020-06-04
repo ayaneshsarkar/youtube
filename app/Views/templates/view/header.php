@@ -24,7 +24,7 @@
     $session = \Config\Services::session();
   ?>
 
-<nav class="navbar navbar-expand-lg sticky-top py-3 shadow navbar-light bg-light" style="z-index: 1">
+<nav class="viewNavbar navbar navbar-expand-lg sticky-top py-3 shadow navbar-light bg-light" style="z-index: 1">
     <div class="container">
       <a class="navbar-brand color-red" href="<?= base_url(); ?>">YouTube</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
     </div>
 </nav>
 
-<nav class="navbar w-100 flex-row fixed-bottom navbar-light bg-light d-lg-none d-md-block d-sm-block">
+<nav class="navbar w-100 flex-row fixed-bottom navbar-light bg-light d-lg-none d-md-block d-sm-block" id="nav">
     <ul class="navbar-nav justify-content-between align-items-center" id="ulNav">
         <li class="nav-item ml-3">
           <a href="<?= base_url(); ?>" class="list-group-item color-black">

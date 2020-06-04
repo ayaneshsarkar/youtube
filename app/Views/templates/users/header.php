@@ -53,7 +53,7 @@
     </div>
   </nav>
 
-  <nav class="navbar w-100 flex-row fixed-bottom navbar-light bg-light d-lg-none d-md-block d-sm-block">
+  <nav class="navbar w-100 flex-row fixed-bottom navbar-light bg-light d-lg-none d-md-block d-sm-block" id="nav">
     <ul class="navbar-nav justify-content-between align-items-center" id="ulNav">
         <li class="nav-item ml-3">
           <a href="<?= base_url(); ?>" class="list-group-item color-black">
