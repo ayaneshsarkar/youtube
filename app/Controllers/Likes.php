@@ -28,7 +28,7 @@ class Likes extends Controller {
       $userId = $session->get('user_id');
       $videoIdPost = $this->request->getPost('video_id');
       
-      $likeDislike = $likeModel->where('user_id', $userId)->where('video_id', $videoIdPost)->first()['video_id'];
+      $likeDislike = $likeModel->where('user_id', $userId)->where('video_id', $videoIdPost)->first()['video_id'] ?? NULL;
 
       if (!$likeDislike) {
         if ($this->request->getPost('like') == 1) {
