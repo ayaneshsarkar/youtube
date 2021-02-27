@@ -10,8 +10,6 @@ class Likes extends Controller {
   
   public function create($slug) {
 
-    var_dump('Hello'); exit;
-
     $session = \Config\Services::session();
 
     helper('url');
