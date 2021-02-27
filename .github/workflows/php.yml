@@ -19,5 +19,5 @@ jobs:
         extensions: mbstring, intl
         ini-values: post_max_size=2000M, max_execution_time=183
     
-    - run: composer install
-    - run: npm -v
+    - name: 'Composer Validate'
+      command: composer install
