@@ -33,7 +33,7 @@
 
       <div class="d-flex mt-3 justify-content-between submit">
         <?php echo form_submit('mysubmit', 'Sign Up', ['class' => 'btn btn-success mb-3']) ?>
-        <a href="<?= base_url('/users/users/login'); ?>" class="btn btn-dark">Already Have An Account? Login...</a>
+        <a href="<?= base_url('/users/users/login'); ?>" class="btn btn-dark mb-3">Already Have An Account? Login...</a>
       </div>
     <?= form_close(); ?>
   </div>
