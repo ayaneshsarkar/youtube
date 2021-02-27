@@ -14,7 +14,7 @@
   $userId = $session->get('user_id');
   $thisChannel_id = $userModel->where('channel_id', $channelId)->first()['id'];
 
-  $subscribed = $subscribeModel->where('user_id', $userId)->where('channel_id', $thisChannel_id)->first()['subscribed'];
+  $subscribed = $subscribeModel->where('user_id', $userId)->where('channel_id', $thisChannel_id)->first()['subscribed'] ?? 0;
 ?>
 
 <div class="jumbotron w-100">
