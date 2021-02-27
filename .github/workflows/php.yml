@@ -20,4 +20,4 @@ jobs:
         ini-values: post_max_size=2000M, max_execution_time=183
     
     - name: 'Composer Validate'
-      command: composer install
+    - run: composer install
