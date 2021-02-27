@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        operating-system: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        php-versions: ['7.3', '7.4']
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.4']
         phpunit-versions: ['latest']
         include:
         - operating-system: 'ubuntu-latest'
