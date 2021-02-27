@@ -1,154 +1,152 @@
--- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for debian-linux-gnu (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: youtube
--- ------------------------------------------------------
--- Server version	10.4.13-MariaDB-1:10.4.13+maria~buster-log
+-- Host: 127.0.0.1
+-- Generation Time: Feb 27, 2021 at 05:59 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Database: `youtube`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `likes`
 --
 
-DROP TABLE IF EXISTS `likes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `likes` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `video_id` int(10) unsigned NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `video_id` int(10) UNSIGNED NOT NULL,
   `is_liked` tinyint(1) NOT NULL DEFAULT 0,
   `is_disliked` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `likes_user_id_foreign` (`user_id`),
-  KEY `likes_video_id_foreign` (`video_id`),
-  CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `likes_video_id_foreign` FOREIGN KEY (`video_id`) REFERENCES `videos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `likes`
 --
 
-LOCK TABLES `likes` WRITE;
-/*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES (2,1,8,1,0,'2020-05-19 20:29:57','2020-06-03 19:33:49'),(3,1,5,1,0,'2020-05-19 20:55:01','2020-05-19 20:55:01'),(4,2,8,1,0,'2020-05-20 05:17:10','2020-05-20 05:17:10'),(5,1,9,1,0,'2020-05-20 05:25:39','2020-06-03 19:05:47'),(7,1,6,1,0,'2020-06-03 18:57:07','2020-06-14 19:09:19'),(8,1,4,1,0,'2020-06-14 19:10:12','2020-06-14 19:10:12'),(9,3,7,1,0,'2020-06-23 14:13:36','2020-06-23 14:13:36'),(10,3,9,1,0,'2020-06-23 14:14:18','2020-06-23 14:14:18'),(11,4,6,1,0,'2020-06-23 14:23:23','2020-06-23 14:23:23'),(12,4,4,1,0,'2020-06-23 14:23:43','2020-06-23 14:23:43'),(13,1,12,1,0,'2020-08-02 08:25:03','2020-08-02 08:25:07');
-/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `likes` (`id`, `user_id`, `video_id`, `is_liked`, `is_disliked`, `created_at`, `updated_at`) VALUES
+(48, 12, 60, 0, 1, '2020-05-17 14:24:04', '2020-05-17 19:56:43'),
+(110, 12, 25, 0, 1, '2020-05-17 20:00:53', '2020-05-17 20:01:00'),
+(126, 4, 60, 0, 1, '2020-05-18 15:58:22', '2020-05-18 15:58:29'),
+(128, 12, 63, 1, 0, '2020-05-19 08:23:13', '2020-05-19 08:23:13'),
+(130, 12, 64, 1, 0, '2020-05-19 16:51:08', '2020-05-19 16:51:08'),
+(133, 21, 60, 1, 0, '2020-06-02 17:21:25', '2020-06-02 17:21:25');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `migrations`
 --
 
-DROP TABLE IF EXISTS `migrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `migrations` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) UNSIGNED NOT NULL,
   `version` varchar(255) NOT NULL,
   `class` text NOT NULL,
   `group` varchar(255) NOT NULL,
   `namespace` varchar(255) NOT NULL,
   `time` int(11) NOT NULL,
-  `batch` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `batch` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `migrations`
 --
 
-LOCK TABLES `migrations` WRITE;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2020-05-13-055414','App\\Database\\Migrations\\CreateUsersTable','default','App',1589914145,1),(2,'2020-05-14-054612','App\\Database\\Migrations\\ModifyUsersTable','default','App',1589914145,1),(3,'2020-05-11-062356','App\\Database\\Migrations\\CreateVideoTable','default','App',1589914165,2),(4,'2020-05-15-063415','App\\Database\\Migrations\\CreateViewesTable','default','App',1589914190,3),(5,'2020-05-15-142743','App\\Database\\Migrations\\CreateLikesTable','default','App',1589914206,4),(6,'2020-05-18-051242','App\\Database\\Migrations\\CreateSubscribersTable','default','App',1589914238,5);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
+(3, '2020-05-13-055414', 'App\\Database\\Migrations\\CreateUsersTable', 'default', 'App', 1589349978, 2),
+(5, '2020-05-14-054612', 'App\\Database\\Migrations\\ModifyUsersTable', 'default', 'App', 1589435656, 3),
+(8, '2020-05-14-184140', 'App\\Database\\Migrations\\AddForeignKey', 'default', 'App', 1589481966, 5),
+(9, '2020-05-11-062356', 'App\\Database\\Migrations\\CreateVideoTable', 'default', 'App', 1589484734, 6),
+(11, '2020-05-15-063415', 'App\\Database\\Migrations\\CreateViewesTable', 'default', 'App', 1589524941, 7),
+(12, '2020-05-15-142743', 'App\\Database\\Migrations\\CreateLikesTable', 'default', 'App', 1589553213, 8),
+(16, '2020-05-18-051242', 'App\\Database\\Migrations\\CreateSubscribersTable', 'default', 'App', 1589785636, 9),
+(17, '2020-05-18-140948', 'App\\Database\\Migrations\\DropViewForeignKey', 'default', 'App', 1589811211, 10),
+(18, '2020-05-18-141823', 'App\\Database\\Migrations\\DropLikesFroeignKey', 'default', 'App', 1589811544, 11);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `subscribers`
 --
 
-DROP TABLE IF EXISTS `subscribers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subscribers` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `channel_id` int(10) unsigned NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `channel_id` int(10) UNSIGNED NOT NULL,
   `subscribed` tinyint(1) NOT NULL DEFAULT 0,
   `not_subscribed` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `subscribers_channel_id_foreign` (`channel_id`),
-  CONSTRAINT `subscribers_channel_id_foreign` FOREIGN KEY (`channel_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `subscribers`
 --
 
-LOCK TABLES `subscribers` WRITE;
-/*!40000 ALTER TABLE `subscribers` DISABLE KEYS */;
-INSERT INTO `subscribers` VALUES (2,2,1,1,0,'2020-05-19 21:15:38','2020-05-19 21:15:38'),(3,1,1,1,0,'2020-06-03 18:56:50','2020-06-03 18:56:50');
-/*!40000 ALTER TABLE `subscribers` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `subscribers` (`id`, `user_id`, `channel_id`, `subscribed`, `not_subscribed`, `created_at`, `updated_at`) VALUES
+(61, 4, 12, 1, 0, '2020-05-18 08:29:13', '2020-05-18 08:29:13'),
+(62, 4, 4, 1, 0, '2020-05-18 08:29:34', '2020-05-18 08:29:34'),
+(69, 12, 4, 1, 0, '2020-05-18 13:09:07', '2020-05-18 13:09:07'),
+(70, 21, 4, 1, 0, '2020-05-18 13:09:46', '2020-05-18 13:09:46'),
+(72, 12, 12, 1, 0, '2020-05-24 15:08:44', '2020-05-24 15:08:44'),
+(73, 21, 21, 1, 0, '2020-05-27 05:13:14', '2020-05-27 05:13:14'),
+(74, 21, 12, 1, 0, '2020-06-08 04:08:09', '2020-06-08 04:08:09'),
+(75, 4, 21, 1, 0, '2020-06-08 13:57:21', '2020-06-08 13:57:21');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `channel_id` varchar(255) DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `channel_id` varchar(255) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `verify_key` varchar(255) DEFAULT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ng6hODqSzKFr','ayaneshsarkar','ayaneshsarkar101@gmail.com','$2y$10$BQhtL0QOkYiq6Pjxlqc3ReGu1ygmpx9wOqqEopqQIFeSPGNQD2nAa','d1576e8b6b17f070ecba2097f22147f6',1,'2020-05-19 19:32:57','2020-05-19 19:33:24'),(2,'IfZ47Sdv98Tb','ayaneshofficial','ayaneshofficial@gmail.com','$2y$10$iKeeRmJLemyhalbxb2/GIeaJzsLfuyjQc.R2XllgG7Qwzs9fj.MYi','d0f4ec56774dcd75a7375c0e49cc7778',1,'2020-05-19 21:14:45','2020-05-19 21:15:04'),(3,'ZaBYRX7HdQnp','fullstackayanesh','ayanesh@fullstackayanesh.xyz','$2y$10$MQaf4.2atD2TuFAmNJaqxeIXpN4nnFLwuQfKWwtuDWq/z7hhze1zy','1e72f71320537f129c72232dc16f4fac',1,'2020-06-14 13:03:24','2020-06-14 13:13:12'),(4,'5pzw6ilsAIRr','ayaneshdev','ayaensh@ayaneshdev.xyz','$2y$10$1WjGdbIrsj.N1YIu964cG.f4Sr5lwHR0CO4nVGABmV/iEZjLTa7eK','751b68b40fe499a60d056d30e47ea6f3',1,'2020-06-23 14:12:27','2020-06-23 14:22:14');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `users` (`id`, `channel_id`, `username`, `email`, `password`, `verify_key`, `verified`, `created_at`, `updated_at`) VALUES
+(4, 'rzh7dWOiqavR', 'ayaneshofficial', 'ayaneshofficial@gmail.com', '$2y$10$dUsus52sVbwxkq3mVD6ZM.pZu3j6hvCHvoA7.SFHKqoY0/PHBLjcO', '66dac9f8f14019b104582e22995755b8', 1, '2020-05-13 09:47:01', '2020-05-13 10:02:57'),
+(12, 'rzh7dWOiqaaa', 'ayanesh88', 'ayanesh88@hotmail.com', '$2y$10$u2UCJpaxYArVpjUmKwF.7OaLsKaQZf1GW26T2BxBO8VIELZEe/s7G', 'e50a43fc37af8328edfa974e026c3a8f', 1, '2020-05-13 14:23:43', '2020-05-14 18:14:22'),
+(13, 'rzh7dWOiqfrT', 'fullstackayanesh', 'ayanesh@fullstackayanesh.xyz', '$2y$10$MTjL3y01Bzt9qoNfa88B8uoM.D.C6QRkRq3UupeUxg.QUpUsWlzvu', 'f62f3881b88567b0f546493cfb1293d0', 1, '2020-05-13 14:55:19', '2020-05-14 18:14:30'),
+(21, 'geAxM82P6vjk', 'ayaneshdev', 'ayanesh@ayaneshdev.xyz', '$2y$10$IGB7Xj0FWoHT6uPgvJNFpub74OwqyAy3UUN9XBGaUXTMyGizERTYm', '6d376677b902dd246349e0728a54602c', 1, '2020-05-17 18:51:38', '2020-05-17 18:53:44');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `videos`
 --
 
-DROP TABLE IF EXISTS `videos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `videos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `video_name` varchar(255) NOT NULL,
   `video_slug` varchar(255) DEFAULT NULL,
   `title` varchar(255) NOT NULL,
@@ -158,61 +156,353 @@ CREATE TABLE `videos` (
   `is_published` tinyint(1) NOT NULL DEFAULT 0,
   `is_unlisted` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `videos_user_id_foreign` (`user_id`),
-  CONSTRAINT `videos_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `videos`
 --
 
-LOCK TABLES `videos` WRITE;
-/*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (4,1,'1589919624_930d3c19a55657b746c8.mp4','HWGsbplEVS','La Sandunga','Antenoche fui a tu casa,\r\nTres golpes le di al candado,\r\nTienes el sueño pesado.\r\nAy! Sandunga, Sandunga\r\nMamá por Dios.\r\nSandunga, no seas ingrata,\r\nMamá de mi corazón.\r\nMe ofreciste acompañarme\r\nDesde la iglesia hasta mi choza,\r\nPero como no llegaste\r\nTuve que venirme solo.\r\nA orillas del Papaloapam\r\nMe estaba bañando ayer,\r\nPasaste por las orillas\r\nY no quisiste ver.\r\nEstaban dos tortolitas\r\nArrullándose en su nido,\r\nY por más luchas que te hice\r\nTe hiciste la desentendida.\r\nAy! Sandunga sí, Ay…','1589919658_21b1523dc8c6cd145861.jpg','music',1,0,'2020-05-19 20:20:24','2020-05-19 20:21:18'),(5,1,'1589919745_3ed2c162d6d3d8b8069d.mp4','cuVlex4aHD','Juan Gabriel - Hasta Que Te Conocí','Letra de Hasta Que Te Conocí\r\n\r\nNo sabia, de tristezas, ni de lágrimas\r\nNi nada, que me hicieran llorar\r\nYo sabía de cariño, de ternura\r\nPorque a mí­ desde pequeño\r\nEso me enseño mamá, eso me enseño mamá\r\nEso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nYo vivía tan distinto, algo hermoso\r\nAlgo divino, lleno de felicidad\r\nYo sabia de alegrías, la belleza de la vida\r\nPero no de soledad, pero no de soledad\r\nDe eso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nHasta que te conocí\r\nVi la vida con dolor\r\nNo te miento fui feliz\r\nAunque con muy poco amor\r\nY muy tarde comprendí\r\nQue no te debía amar\r\nPorque ahora pienso en ti\r\nMás que ayer, mucho más\r\n\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz\r\nPero te encontré\r\n\r\nYo no quiero que me digas\r\nSi valía o no la pena\r\nEl haberte conocido\r\nPorque no te creo más\r\nY es que tú fuiste muy mala\r\nSi muy mala conmigo\r\nPor eso no te quiero\r\nNo te quiero ver jamás','1589919783_f95ec079474129c63706.jpg','music',1,0,'2020-05-19 20:22:25','2020-05-19 20:23:03'),(6,1,'1589919863_3478262f3a77197194ef.mp4','hH1tqi0VXK','Natalia Lafourcade - Nunca Es Suficiente','NUNCA ES SUFICIENTE\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nYo quisiera hacerte más feliz.\r\nHoy, mañana, siempre, hasta el fin.\r\n\r\nMi corazón estalla por tu amor.\r\nY tú que crees que esto es muy normal.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar.\r\nTodas las ilusiones vagabundas que se dejan alcanzar.\r\nY no verás que lo que yo te ofrezco es algo incondicional.\r\n\r\nY tú te vas jugando a enamorar.\r\nTe enredas por las noches entre historias que nunca tienen final.\r\nTe perderás dentro de mis recuerdos por haberme hecho llorar.\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nNo ha cambiado nada mi sentir.\r\nAunque me haces mal te quiero aquí.\r\n\r\nMi corazón estalla de dolor.\r\n\r\nCómo evitar que se fracture en mil.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar\r\n\r\nMusic video by Natalia Lafourcade performing Nunca Es Suficiente. (C) 2016 Sony Music Entertainment México, S.A. de C.V.','1591209954_f9fdbad658ea3d1db159.jpg','music',1,0,'2020-05-19 20:24:24','2020-06-03 18:45:54'),(7,1,'1589919988_909c949dd3a4da1dcecc.mp4','jNBE1t8u9K','Transcription','Transcription','1589920037_7980359c77b6bfd9dae5.png','fiverr',1,0,'2020-05-19 20:26:28','2020-05-19 20:27:23'),(8,1,'1589920145_45b688e4f6318a6e16a8.mp4','ONxtL1BRWi','Natalia Lafourcade | Amor, Amor de Mis Amores (En Vivo)','One of the great songs that I like. I love this song.','1591209902_1275ec549c4784bb7d42.jpg','music',1,0,'2020-05-19 20:29:05','2020-06-03 18:45:02'),(9,1,'1589952260_c9735ec2b6b6e6afe6d5.mp4','hrTQbfgcjm','The HU - Wolf Totem (Official Music Video)','Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\nIt was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','1589952327_c710b55d307e30244638.jpg','music',1,0,'2020-05-20 05:24:21','2020-05-20 05:25:27'),(10,1,'1589958429_905e1dda643423069f7e.mp4','rkSyKlUebR','Extraction 2020','Extraction is a 2020 American action-thriller film directed by Sam Hargrave (in his feature debut) and written by Joe Russo, based on the graphic novel Ciudad by Ande Parks, Joe Russo, Anthony Russo, Fernando León González, and Eric Skillman. What a film!\r\n','1591203092_73a9e7242bd136934f6d.png','movies',1,0,'2020-05-20 07:07:25','2020-06-03 16:51:32'),(12,1,'1596356635_94bc046916240df5ac76.mp4','syogJT3utb','La Bruja Jenny and the Mexicats','La Bruja Jenny and the Mexicats','1596356696_7fe43f33eb3e2d1e38fd.jpg','music',1,0,'2020-08-02 08:23:55','2020-08-02 08:24:56');
-/*!40000 ALTER TABLE `videos` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `videos` (`id`, `user_id`, `video_name`, `video_slug`, `title`, `description`, `thumbnail`, `tags`, `is_published`, `is_unlisted`, `created_at`, `updated_at`) VALUES
+(25, 12, '1589308849_281802b8f7317603333a.mp4', 'bzurxn8fNM', 'Natalia Lafourcade | Amor, Amor de Mis Amores (En Vivo)', 'One of the great songs that I like. I love this song.', '1589309130_7700661a0605734aa352.jpg', 'music,natalia', 1, 0, '2020-05-12 13:10:49', '2020-05-19 16:49:38'),
+(60, 4, '1589484874_f1f0331c4948047bbe8f.mp4', 'IVS1Rspx2K', 'The HU - Wolf Totem (Official Music Video)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1589484900_8a8290a95ce858a35275.jpg', 'music', 1, 0, '2020-05-14 19:34:34', '2020-05-14 19:35:44'),
+(63, 12, '1589830964_4ae6506b6cb869c01809.mp4', 'cWUoQbFONd', 'Juan Gabriel - Hasta Que Te Conocí', 'Letra de Hasta Que Te Conocí\r\n\r\nNo sabia, de tristezas, ni de lágrimas\r\nNi nada, que me hicieran llorar\r\nYo sabía de cariño, de ternura\r\nPorque a mí­ desde pequeño\r\nEso me enseño mamá, eso me enseño mamá\r\nEso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nYo vivía tan distinto, algo hermoso\r\nAlgo divino, lleno de felicidad\r\nYo sabia de alegrías, la belleza de la vida\r\nPero no de soledad, pero no de soledad\r\nDe eso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nHasta que te conocí\r\nVi la vida con dolor\r\nNo te miento fui feliz\r\nAunque con muy poco amor\r\nY muy tarde comprendí\r\nQue no te debía amar\r\nPorque ahora pienso en ti\r\nMás que ayer, mucho más\r\n\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz\r\nPero te encontré\r\n\r\nYo no quiero que me digas\r\nSi valía o no la pena\r\nEl haberte conocido\r\nPorque no te creo más\r\nY es que tú fuiste muy mala\r\nSi muy mala conmigo\r\nPor eso no te quiero\r\nNo te quiero ver jamás', '1589831004_6d0db9249336dd3f0e05.jpg', 'music', 1, 0, '2020-05-18 19:42:44', '2020-05-18 19:43:42'),
+(64, 21, '1589891774_c8f75ade00d4a2b1573f.mp4', 'bv1czaKnA7', 'Natalia Lafourcade - Nunca Es Suficiente', 'NUNCA ES SUFICIENTE\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nYo quisiera hacerte más feliz.\r\nHoy, mañana, siempre, hasta el fin.\r\n\r\nMi corazón estalla por tu amor.\r\nY tú que crees que esto es muy normal.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar.\r\nTodas las ilusiones vagabundas que se dejan alcanzar.\r\nY no verás que lo que yo te ofrezco es algo incondicional.\r\n\r\nY tú te vas jugando a enamorar.\r\nTe enredas por las noches entre historias que nunca tienen final.\r\nTe perderás dentro de mis recuerdos por haberme hecho llorar.\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nNo ha cambiado nada mi sentir.\r\nAunque me haces mal te quiero aquí.\r\n\r\nMi corazón estalla de dolor.\r\n\r\nCómo evitar que se fracture en mil.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar\r\n\r\nMusic video by Natalia Lafourcade performing Nunca Es Suficiente. (C) 2016 Sony Music Entertainment México, S.A. de C.V.', '1589891805_cbff97fbb78567a1f006.jpg', 'music', 1, 0, '2020-05-19 12:36:14', '2020-05-19 16:57:10');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `viewes`
 --
 
-DROP TABLE IF EXISTS `viewes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `viewes` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `video_id` int(10) unsigned NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `video_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `viewes_user_id_foreign` (`user_id`),
-  KEY `viewes_video_id_foreign` (`video_id`),
-  CONSTRAINT `viewes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `viewes_video_id_foreign` FOREIGN KEY (`video_id`) REFERENCES `videos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `viewes`
 --
 
-LOCK TABLES `viewes` WRITE;
-/*!40000 ALTER TABLE `viewes` DISABLE KEYS */;
-INSERT INTO `viewes` VALUES (2,1,4,'2020-05-19 20:21:02','2020-05-19 20:21:02'),(3,1,4,'2020-05-19 20:21:20','2020-05-19 20:21:20'),(4,1,5,'2020-05-19 20:23:12','2020-05-19 20:23:12'),(5,1,6,'2020-05-19 20:25:37','2020-05-19 20:25:37'),(6,1,7,'2020-05-19 20:27:26','2020-05-19 20:27:26'),(7,1,8,'2020-05-19 20:29:53','2020-05-19 20:29:53'),(8,1,8,'2020-05-19 20:30:13','2020-05-19 20:30:13'),(9,1,8,'2020-05-19 20:53:09','2020-05-19 20:53:09'),(10,1,8,'2020-05-19 20:54:37','2020-05-19 20:54:37'),(11,1,5,'2020-05-19 20:54:41','2020-05-19 20:54:41'),(12,1,5,'2020-05-19 20:55:19','2020-05-19 20:55:19'),(13,2,8,'2020-05-19 21:15:30','2020-05-19 21:15:30'),(14,2,8,'2020-05-20 05:17:00','2020-05-20 05:17:00'),(15,2,8,'2020-05-20 05:17:07','2020-05-20 05:17:07'),(16,2,6,'2020-05-20 05:17:23','2020-05-20 05:17:23'),(17,1,8,'2020-05-20 05:20:07','2020-05-20 05:20:07'),(18,1,8,'2020-05-20 05:20:26','2020-05-20 05:20:26'),(19,1,9,'2020-05-20 05:25:31','2020-05-20 05:25:31'),(20,1,9,'2020-05-20 06:01:09','2020-05-20 06:01:09'),(21,1,9,'2020-05-20 06:29:23','2020-05-20 06:29:23'),(22,1,9,'2020-05-20 06:33:58','2020-05-20 06:33:58'),(23,1,9,'2020-05-20 06:36:57','2020-05-20 06:36:57'),(24,1,9,'2020-05-20 06:37:45','2020-05-20 06:37:45'),(25,1,9,'2020-05-20 06:41:12','2020-05-20 06:41:12'),(26,1,9,'2020-05-20 06:44:04','2020-05-20 06:44:04'),(27,1,9,'2020-05-20 06:44:21','2020-05-20 06:44:21'),(28,1,9,'2020-05-20 06:46:53','2020-05-20 06:46:53'),(29,1,9,'2020-05-20 06:47:15','2020-05-20 06:47:15'),(30,1,9,'2020-05-20 06:47:36','2020-05-20 06:47:36'),(31,1,9,'2020-05-20 06:49:28','2020-05-20 06:49:28'),(32,1,9,'2020-05-20 06:50:44','2020-05-20 06:50:44'),(33,1,9,'2020-05-20 06:51:21','2020-05-20 06:51:21'),(34,1,9,'2020-05-20 06:53:54','2020-05-20 06:53:54'),(35,1,9,'2020-05-20 06:55:28','2020-05-20 06:55:28'),(36,1,9,'2020-05-20 06:56:08','2020-05-20 06:56:08'),(37,1,9,'2020-05-20 06:57:34','2020-05-20 06:57:34'),(38,1,9,'2020-05-20 06:57:38','2020-05-20 06:57:38'),(39,1,9,'2020-05-20 06:58:08','2020-05-20 06:58:08'),(40,1,9,'2020-05-20 06:59:49','2020-05-20 06:59:49'),(41,1,9,'2020-05-20 07:02:27','2020-05-20 07:02:27'),(42,1,9,'2020-05-20 07:04:55','2020-05-20 07:04:55'),(43,1,9,'2020-05-20 07:05:39','2020-05-20 07:05:39'),(44,1,9,'2020-05-20 07:07:13','2020-05-20 07:07:13'),(45,1,9,'2020-05-20 07:07:43','2020-05-20 07:07:43'),(46,1,10,'2020-05-20 07:10:41','2020-05-20 07:10:41'),(47,1,9,'2020-05-20 07:26:23','2020-05-20 07:26:23'),(48,1,9,'2020-05-20 07:26:37','2020-05-20 07:26:37'),(49,1,6,'2020-06-03 16:44:19','2020-06-03 16:44:19'),(50,1,10,'2020-06-03 16:45:54','2020-06-03 16:45:54'),(51,1,7,'2020-06-03 16:50:14','2020-06-03 16:50:14'),(52,1,8,'2020-06-03 16:51:41','2020-06-03 16:51:41'),(53,1,10,'2020-06-03 17:03:16','2020-06-03 17:03:16'),(54,1,10,'2020-06-03 17:08:25','2020-06-03 17:08:25'),(55,1,4,'2020-06-03 17:20:14','2020-06-03 17:20:14'),(56,1,6,'2020-06-03 17:20:29','2020-06-03 17:20:29'),(57,1,10,'2020-06-03 17:53:12','2020-06-03 17:53:12'),(58,1,10,'2020-06-03 17:55:13','2020-06-03 17:55:13'),(59,1,10,'2020-06-03 18:00:46','2020-06-03 18:00:46'),(60,1,10,'2020-06-03 18:03:19','2020-06-03 18:03:19'),(61,1,9,'2020-06-03 18:04:32','2020-06-03 18:04:32'),(62,1,9,'2020-06-03 18:05:31','2020-06-03 18:05:31'),(63,1,9,'2020-06-03 18:15:40','2020-06-03 18:15:40'),(64,1,10,'2020-06-03 18:18:49','2020-06-03 18:18:49'),(65,1,10,'2020-06-03 18:21:12','2020-06-03 18:21:12'),(66,1,10,'2020-06-03 18:24:36','2020-06-03 18:24:36'),(67,1,10,'2020-06-03 18:34:47','2020-06-03 18:34:47'),(68,1,10,'2020-06-03 18:35:19','2020-06-03 18:35:19'),(69,1,10,'2020-06-03 18:39:30','2020-06-03 18:39:30'),(70,1,6,'2020-06-03 18:53:47','2020-06-03 18:53:47'),(71,1,7,'2020-06-03 18:57:35','2020-06-03 18:57:35'),(72,1,7,'2020-06-03 19:01:08','2020-06-03 19:01:08'),(73,1,7,'2020-06-03 19:01:15','2020-06-03 19:01:15'),(74,1,9,'2020-06-03 19:05:10','2020-06-03 19:05:10'),(75,1,9,'2020-06-03 19:05:31','2020-06-03 19:05:31'),(76,1,9,'2020-06-03 19:06:10','2020-06-03 19:06:10'),(77,1,8,'2020-06-03 19:12:45','2020-06-03 19:12:45'),(78,1,8,'2020-06-03 19:22:20','2020-06-03 19:22:20'),(79,1,5,'2020-06-03 19:22:27','2020-06-03 19:22:27'),(80,1,5,'2020-06-03 19:22:35','2020-06-03 19:22:35'),(81,1,8,'2020-06-03 19:33:40','2020-06-03 19:33:40'),(82,3,9,'2020-06-14 13:31:34','2020-06-14 13:31:34'),(83,3,9,'2020-06-14 13:31:42','2020-06-14 13:31:42'),(84,1,10,'2020-06-14 19:07:57','2020-06-14 19:07:57'),(85,1,7,'2020-06-14 19:08:05','2020-06-14 19:08:05'),(86,1,6,'2020-06-14 19:09:01','2020-06-14 19:09:01'),(87,1,4,'2020-06-14 19:10:09','2020-06-14 19:10:09'),(88,1,4,'2020-06-14 19:11:19','2020-06-14 19:11:19'),(89,3,8,'2020-06-23 14:13:09','2020-06-23 14:13:09'),(90,3,7,'2020-06-23 14:13:14','2020-06-23 14:13:14'),(91,3,9,'2020-06-23 14:14:14','2020-06-23 14:14:14'),(92,3,9,'2020-06-23 14:14:20','2020-06-23 14:14:20'),(93,4,6,'2020-06-23 14:22:56','2020-06-23 14:22:56'),(94,4,4,'2020-06-23 14:23:36','2020-06-23 14:23:36'),(95,4,4,'2020-06-23 14:23:40','2020-06-23 14:23:40'),(96,1,4,'2020-06-26 13:44:24','2020-06-26 13:44:24'),(97,1,4,'2020-06-26 13:44:29','2020-06-26 13:44:29'),(98,1,4,'2020-06-26 13:44:31','2020-06-26 13:44:31'),(99,1,4,'2020-06-26 14:33:49','2020-06-26 14:33:49'),(100,1,12,'2020-08-02 08:24:58','2020-08-02 08:24:58');
-/*!40000 ALTER TABLE `viewes` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `viewes` (`id`, `user_id`, `video_id`, `created_at`, `updated_at`) VALUES
+(3, 4, 60, '2020-05-15 07:27:16', '2020-05-15 07:27:16'),
+(4, 4, 60, '2020-05-15 07:30:38', '2020-05-15 07:30:38'),
+(5, 4, 60, '2020-05-15 07:30:43', '2020-05-15 07:30:43'),
+(6, 4, 60, '2020-05-15 07:31:17', '2020-05-15 07:31:17'),
+(7, 4, 60, '2020-05-15 07:32:05', '2020-05-15 07:32:05'),
+(8, 4, 60, '2020-05-15 07:33:59', '2020-05-15 07:33:59'),
+(12, 4, 25, '2020-05-15 07:38:30', '2020-05-15 07:38:30'),
+(13, 4, 60, '2020-05-15 07:40:43', '2020-05-15 07:40:43'),
+(17, 4, 25, '2020-05-15 07:48:27', '2020-05-15 07:48:27'),
+(22, 4, 60, '2020-05-15 13:06:30', '2020-05-15 13:06:30'),
+(23, 4, 60, '2020-05-15 13:06:35', '2020-05-15 13:06:35'),
+(24, 4, 25, '2020-05-15 13:27:35', '2020-05-15 13:27:35'),
+(26, 4, 25, '2020-05-15 14:29:34', '2020-05-15 14:29:34'),
+(27, 4, 25, '2020-05-15 14:43:27', '2020-05-15 14:43:27'),
+(28, 4, 25, '2020-05-15 14:43:49', '2020-05-15 14:43:49'),
+(29, 4, 25, '2020-05-15 14:44:38', '2020-05-15 14:44:38'),
+(30, 4, 25, '2020-05-15 14:45:07', '2020-05-15 14:45:07'),
+(31, 4, 25, '2020-05-15 14:45:27', '2020-05-15 14:45:27'),
+(32, 4, 25, '2020-05-15 15:15:44', '2020-05-15 15:15:44'),
+(33, 4, 25, '2020-05-15 15:21:14', '2020-05-15 15:21:14'),
+(35, 4, 25, '2020-05-15 17:05:24', '2020-05-15 17:05:24'),
+(39, 4, 25, '2020-05-15 17:06:48', '2020-05-15 17:06:48'),
+(40, 4, 25, '2020-05-15 17:15:26', '2020-05-15 17:15:26'),
+(223, 12, 25, '2020-05-17 10:16:22', '2020-05-17 10:16:22'),
+(224, 12, 25, '2020-05-17 10:18:25', '2020-05-17 10:18:25'),
+(225, 12, 25, '2020-05-17 10:34:41', '2020-05-17 10:34:41'),
+(226, 12, 25, '2020-05-17 10:35:09', '2020-05-17 10:35:09'),
+(227, 12, 25, '2020-05-17 10:37:19', '2020-05-17 10:37:19'),
+(228, 12, 25, '2020-05-17 10:37:21', '2020-05-17 10:37:21'),
+(229, 12, 25, '2020-05-17 10:37:58', '2020-05-17 10:37:58'),
+(230, 12, 25, '2020-05-17 10:38:03', '2020-05-17 10:38:03'),
+(231, 12, 25, '2020-05-17 10:40:04', '2020-05-17 10:40:04'),
+(232, 12, 25, '2020-05-17 10:40:19', '2020-05-17 10:40:19'),
+(233, 12, 25, '2020-05-17 10:41:00', '2020-05-17 10:41:00'),
+(234, 12, 25, '2020-05-17 10:41:01', '2020-05-17 10:41:01'),
+(235, 12, 25, '2020-05-17 10:46:29', '2020-05-17 10:46:29'),
+(236, 12, 25, '2020-05-17 10:46:43', '2020-05-17 10:46:43'),
+(247, 12, 25, '2020-05-17 10:56:47', '2020-05-17 10:56:47'),
+(279, 12, 25, '2020-05-17 13:19:03', '2020-05-17 13:19:03'),
+(280, 12, 25, '2020-05-17 13:19:07', '2020-05-17 13:19:07'),
+(281, 12, 25, '2020-05-17 13:19:12', '2020-05-17 13:19:12'),
+(282, 12, 25, '2020-05-17 13:19:15', '2020-05-17 13:19:15'),
+(285, 12, 25, '2020-05-17 13:19:26', '2020-05-17 13:19:26'),
+(292, 12, 25, '2020-05-17 13:23:53', '2020-05-17 13:23:53'),
+(294, 12, 25, '2020-05-17 13:23:58', '2020-05-17 13:23:58'),
+(295, 12, 25, '2020-05-17 13:26:52', '2020-05-17 13:26:52'),
+(300, 12, 25, '2020-05-17 13:28:56', '2020-05-17 13:28:56'),
+(305, 12, 25, '2020-05-17 13:56:30', '2020-05-17 13:56:30'),
+(318, 12, 25, '2020-05-17 14:05:30', '2020-05-17 14:05:30'),
+(336, 12, 60, '2020-05-17 14:24:02', '2020-05-17 14:24:02'),
+(342, 12, 60, '2020-05-17 14:25:12', '2020-05-17 14:25:12'),
+(372, 12, 25, '2020-05-17 14:43:56', '2020-05-17 14:43:56'),
+(435, 12, 60, '2020-05-17 19:56:17', '2020-05-17 19:56:17'),
+(438, 12, 25, '2020-05-17 20:00:30', '2020-05-17 20:00:30'),
+(444, 12, 25, '2020-05-17 20:24:31', '2020-05-17 20:24:31'),
+(445, 12, 60, '2020-05-17 20:24:35', '2020-05-17 20:24:35'),
+(449, 12, 25, '2020-05-17 20:24:50', '2020-05-17 20:24:50'),
+(455, 12, 60, '2020-05-17 20:25:23', '2020-05-17 20:25:23'),
+(462, 12, 60, '2020-05-17 20:26:02', '2020-05-17 20:26:02'),
+(476, 12, 60, '2020-05-18 05:01:38', '2020-05-18 05:01:38'),
+(483, 12, 60, '2020-05-18 05:51:20', '2020-05-18 05:51:20'),
+(484, 12, 60, '2020-05-18 06:01:00', '2020-05-18 06:01:00'),
+(489, 12, 60, '2020-05-18 06:34:07', '2020-05-18 06:34:07'),
+(497, 12, 60, '2020-05-18 07:50:13', '2020-05-18 07:50:13'),
+(499, 12, 60, '2020-05-18 08:09:24', '2020-05-18 08:09:24'),
+(501, 12, 60, '2020-05-18 08:26:26', '2020-05-18 08:26:26'),
+(504, 4, 60, '2020-05-18 08:29:31', '2020-05-18 08:29:31'),
+(506, 12, 60, '2020-05-18 08:30:08', '2020-05-18 08:30:08'),
+(508, 12, 60, '2020-05-18 09:17:58', '2020-05-18 09:17:58'),
+(510, 12, 60, '2020-05-18 09:26:04', '2020-05-18 09:26:04'),
+(515, 12, 60, '2020-05-18 13:09:02', '2020-05-18 13:09:02'),
+(516, 21, 60, '2020-05-18 13:09:41', '2020-05-18 13:09:41'),
+(525, 4, 25, '2020-05-18 15:10:37', '2020-05-18 15:10:37'),
+(526, 4, 25, '2020-05-18 15:14:56', '2020-05-18 15:14:56'),
+(527, 4, 25, '2020-05-18 15:15:53', '2020-05-18 15:15:53'),
+(528, 4, 25, '2020-05-18 15:16:13', '2020-05-18 15:16:13'),
+(529, 4, 25, '2020-05-18 15:17:17', '2020-05-18 15:17:17'),
+(530, 4, 25, '2020-05-18 15:17:48', '2020-05-18 15:17:48'),
+(531, 4, 25, '2020-05-18 15:19:37', '2020-05-18 15:19:37'),
+(532, 4, 25, '2020-05-18 15:19:58', '2020-05-18 15:19:58'),
+(533, 4, 25, '2020-05-18 15:20:08', '2020-05-18 15:20:08'),
+(534, 4, 25, '2020-05-18 15:21:05', '2020-05-18 15:21:05'),
+(535, 4, 25, '2020-05-18 15:21:37', '2020-05-18 15:21:37'),
+(536, 4, 25, '2020-05-18 15:22:06', '2020-05-18 15:22:06'),
+(537, 4, 25, '2020-05-18 15:22:08', '2020-05-18 15:22:08'),
+(538, 4, 25, '2020-05-18 15:22:23', '2020-05-18 15:22:23'),
+(539, 4, 25, '2020-05-18 15:22:33', '2020-05-18 15:22:33'),
+(540, 4, 25, '2020-05-18 15:22:36', '2020-05-18 15:22:36'),
+(541, 4, 25, '2020-05-18 15:23:34', '2020-05-18 15:23:34'),
+(542, 4, 25, '2020-05-18 15:24:33', '2020-05-18 15:24:33'),
+(543, 4, 25, '2020-05-18 15:24:35', '2020-05-18 15:24:35'),
+(544, 4, 25, '2020-05-18 15:25:39', '2020-05-18 15:25:39'),
+(545, 4, 25, '2020-05-18 15:25:42', '2020-05-18 15:25:42'),
+(546, 4, 25, '2020-05-18 15:27:13', '2020-05-18 15:27:13'),
+(547, 4, 25, '2020-05-18 15:27:52', '2020-05-18 15:27:52'),
+(548, 4, 25, '2020-05-18 15:28:23', '2020-05-18 15:28:23'),
+(549, 4, 25, '2020-05-18 15:28:41', '2020-05-18 15:28:41'),
+(550, 4, 25, '2020-05-18 15:28:46', '2020-05-18 15:28:46'),
+(551, 4, 25, '2020-05-18 15:28:48', '2020-05-18 15:28:48'),
+(552, 4, 25, '2020-05-18 15:29:20', '2020-05-18 15:29:20'),
+(553, 4, 25, '2020-05-18 15:29:34', '2020-05-18 15:29:34'),
+(554, 4, 25, '2020-05-18 15:29:39', '2020-05-18 15:29:39'),
+(555, 4, 25, '2020-05-18 15:30:47', '2020-05-18 15:30:47'),
+(556, 4, 25, '2020-05-18 15:30:56', '2020-05-18 15:30:56'),
+(557, 4, 25, '2020-05-18 15:32:03', '2020-05-18 15:32:03'),
+(558, 4, 25, '2020-05-18 15:32:05', '2020-05-18 15:32:05'),
+(559, 4, 25, '2020-05-18 15:36:35', '2020-05-18 15:36:35'),
+(560, 4, 60, '2020-05-18 15:38:35', '2020-05-18 15:38:35'),
+(562, 4, 60, '2020-05-18 15:38:55', '2020-05-18 15:38:55'),
+(567, 12, 63, '2020-05-18 19:43:48', '2020-05-18 19:43:48'),
+(568, 12, 63, '2020-05-18 19:46:39', '2020-05-18 19:46:39'),
+(570, 12, 63, '2020-05-18 19:48:36', '2020-05-18 19:48:36'),
+(571, 12, 25, '2020-05-18 19:49:28', '2020-05-18 19:49:28'),
+(572, 12, 25, '2020-05-18 19:52:51', '2020-05-18 19:52:51'),
+(573, 12, 63, '2020-05-18 19:57:11', '2020-05-18 19:57:11'),
+(574, 12, 63, '2020-05-18 19:57:31', '2020-05-18 19:57:31'),
+(575, 12, 63, '2020-05-18 20:05:56', '2020-05-18 20:05:56'),
+(576, 12, 63, '2020-05-18 20:06:21', '2020-05-18 20:06:21'),
+(577, 12, 63, '2020-05-18 20:06:57', '2020-05-18 20:06:57'),
+(578, 12, 63, '2020-05-18 20:08:21', '2020-05-18 20:08:21'),
+(579, 12, 63, '2020-05-18 20:09:52', '2020-05-18 20:09:52'),
+(580, 12, 63, '2020-05-18 20:10:00', '2020-05-18 20:10:00'),
+(581, 12, 25, '2020-05-18 20:13:02', '2020-05-18 20:13:02'),
+(582, 12, 63, '2020-05-18 20:13:09', '2020-05-18 20:13:09'),
+(584, 12, 25, '2020-05-18 20:13:17', '2020-05-18 20:13:17'),
+(585, 12, 63, '2020-05-19 06:11:30', '2020-05-19 06:11:30'),
+(586, 12, 63, '2020-05-19 06:17:03', '2020-05-19 06:17:03'),
+(587, 12, 63, '2020-05-19 06:42:35', '2020-05-19 06:42:35'),
+(588, 12, 63, '2020-05-19 08:23:07', '2020-05-19 08:23:07'),
+(589, 12, 63, '2020-05-19 08:23:16', '2020-05-19 08:23:16'),
+(590, 12, 63, '2020-05-19 08:23:22', '2020-05-19 08:23:22'),
+(591, 12, 63, '2020-05-19 08:23:23', '2020-05-19 08:23:23'),
+(592, 12, 63, '2020-05-19 08:23:27', '2020-05-19 08:23:27'),
+(593, 12, 63, '2020-05-19 08:23:34', '2020-05-19 08:23:34'),
+(594, 21, 64, '2020-05-19 12:36:52', '2020-05-19 12:36:52'),
+(595, 21, 64, '2020-05-19 12:45:14', '2020-05-19 12:45:14'),
+(596, 21, 64, '2020-05-19 13:02:21', '2020-05-19 13:02:21'),
+(597, 21, 60, '2020-05-19 13:02:38', '2020-05-19 13:02:38'),
+(598, 21, 63, '2020-05-19 14:29:32', '2020-05-19 14:29:32'),
+(599, 21, 25, '2020-05-19 14:29:36', '2020-05-19 14:29:36'),
+(600, 21, 25, '2020-05-19 14:29:43', '2020-05-19 14:29:43'),
+(601, 21, 64, '2020-05-19 14:29:55', '2020-05-19 14:29:55'),
+(602, 21, 63, '2020-05-19 14:30:12', '2020-05-19 14:30:12'),
+(603, 21, 64, '2020-05-19 14:32:12', '2020-05-19 14:32:12'),
+(604, 21, 64, '2020-05-19 14:37:11', '2020-05-19 14:37:11'),
+(605, 21, 64, '2020-05-19 14:39:59', '2020-05-19 14:39:59'),
+(606, 21, 64, '2020-05-19 14:45:43', '2020-05-19 14:45:43'),
+(607, 21, 64, '2020-05-19 14:45:46', '2020-05-19 14:45:46'),
+(608, 21, 64, '2020-05-19 14:45:49', '2020-05-19 14:45:49'),
+(609, 21, 64, '2020-05-19 14:45:50', '2020-05-19 14:45:50'),
+(610, 21, 64, '2020-05-19 14:45:56', '2020-05-19 14:45:56'),
+(611, 21, 64, '2020-05-19 14:46:36', '2020-05-19 14:46:36'),
+(612, 21, 64, '2020-05-19 14:56:09', '2020-05-19 14:56:09'),
+(613, 21, 64, '2020-05-19 14:56:24', '2020-05-19 14:56:24'),
+(614, 21, 64, '2020-05-19 14:57:06', '2020-05-19 14:57:06'),
+(615, 21, 64, '2020-05-19 14:57:18', '2020-05-19 14:57:18'),
+(616, 21, 64, '2020-05-19 14:57:33', '2020-05-19 14:57:33'),
+(617, 21, 64, '2020-05-19 15:02:22', '2020-05-19 15:02:22'),
+(618, 21, 64, '2020-05-19 15:02:26', '2020-05-19 15:02:26'),
+(619, 21, 64, '2020-05-19 15:02:34', '2020-05-19 15:02:34'),
+(620, 21, 64, '2020-05-19 15:02:35', '2020-05-19 15:02:35'),
+(621, 21, 64, '2020-05-19 15:37:27', '2020-05-19 15:37:27'),
+(622, 21, 64, '2020-05-19 15:37:41', '2020-05-19 15:37:41'),
+(623, 21, 64, '2020-05-19 15:53:43', '2020-05-19 15:53:43'),
+(624, 21, 64, '2020-05-19 15:56:13', '2020-05-19 15:56:13'),
+(625, 21, 64, '2020-05-19 15:56:28', '2020-05-19 15:56:28'),
+(626, 21, 64, '2020-05-19 16:39:19', '2020-05-19 16:39:19'),
+(627, 12, 64, '2020-05-19 16:48:06', '2020-05-19 16:48:06'),
+(628, 12, 64, '2020-05-19 16:48:16', '2020-05-19 16:48:16'),
+(629, 12, 25, '2020-05-19 16:48:24', '2020-05-19 16:48:24'),
+(630, 12, 64, '2020-05-19 16:49:41', '2020-05-19 16:49:41'),
+(631, 12, 64, '2020-05-19 16:50:56', '2020-05-19 16:50:56'),
+(632, 12, 64, '2020-05-19 16:53:26', '2020-05-19 16:53:26'),
+(633, 12, 64, '2020-05-19 16:54:27', '2020-05-19 16:54:27'),
+(634, 12, 64, '2020-05-19 16:55:00', '2020-05-19 16:55:00'),
+(635, 12, 25, '2020-05-19 16:56:14', '2020-05-19 16:56:14'),
+(636, 21, 64, '2020-05-19 16:56:51', '2020-05-19 16:56:51'),
+(637, 21, 64, '2020-05-19 16:57:14', '2020-05-19 16:57:14'),
+(639, 12, 25, '2020-05-19 19:58:26', '2020-05-19 19:58:26'),
+(640, 12, 25, '2020-05-19 19:58:50', '2020-05-19 19:58:50'),
+(642, 12, 63, '2020-05-19 20:21:59', '2020-05-19 20:21:59'),
+(643, 12, 25, '2020-05-19 20:23:52', '2020-05-19 20:23:52'),
+(644, 12, 25, '2020-05-19 20:24:52', '2020-05-19 20:24:52'),
+(646, 12, 64, '2020-05-19 20:28:18', '2020-05-19 20:28:18'),
+(647, 12, 64, '2020-05-20 06:14:02', '2020-05-20 06:14:02'),
+(649, 12, 63, '2020-05-24 15:19:29', '2020-05-24 15:19:29'),
+(650, 12, 63, '2020-05-24 15:20:16', '2020-05-24 15:20:16'),
+(651, 12, 63, '2020-05-24 15:20:38', '2020-05-24 15:20:38'),
+(652, 12, 63, '2020-05-24 15:21:26', '2020-05-24 15:21:26'),
+(661, 4, 25, '2020-05-30 09:37:28', '2020-05-30 09:37:28'),
+(663, 21, 60, '2020-06-02 17:18:56', '2020-06-02 17:18:56'),
+(665, 21, 25, '2020-06-02 17:31:27', '2020-06-02 17:31:27'),
+(678, 12, 25, '2020-07-08 17:19:15', '2020-07-08 17:19:15'),
+(680, 12, 60, '2021-02-03 19:59:13', '2021-02-03 19:59:13'),
+(681, 12, 60, '2021-02-03 19:59:15', '2021-02-03 19:59:15'),
+(690, 12, 64, '2021-02-03 20:04:03', '2021-02-03 20:04:03'),
+(691, 21, 64, '2021-02-03 20:05:44', '2021-02-03 20:05:44');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `likes_user_id_foreign` (`user_id`),
+  ADD KEY `video_id` (`video_id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subscribers_channel_id_foreign` (`channel_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `videos_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `viewes`
+--
+ALTER TABLE `viewes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `viewes_user_id_foreign` (`user_id`),
+  ADD KEY `video_id` (`video_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `viewes`
+--
+ALTER TABLE `viewes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=694;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`video_id`) REFERENCES `videos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `likes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `subscribers`
+--
+ALTER TABLE `subscribers`
+  ADD CONSTRAINT `subscribers_channel_id_foreign` FOREIGN KEY (`channel_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `videos`
+--
+ALTER TABLE `videos`
+  ADD CONSTRAINT `videos_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `viewes`
+--
+ALTER TABLE `viewes`
+  ADD CONSTRAINT `viewes_ibfk_1` FOREIGN KEY (`video_id`) REFERENCES `videos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `viewes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-09-11 19:07:00
