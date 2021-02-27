@@ -7,11 +7,11 @@ $session = \Config\Services::session();
   $viewModel = new ViewModel();
   $likeModel = new LikeModel();
 
-  $isLiked = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['is_liked'];
+  $isLiked = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['is_liked'] ?? '';
 
-  $isDisliked = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['is_disliked'];
+  $isDisliked = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['is_disliked'] ?? '';
 
-  $videoId = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['video_id']
+  $videoId = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['video_id'] ?? '';
 ?>
 
     <div class="row px-4 mb-5 mt-4 pb-5">

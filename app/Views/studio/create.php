@@ -12,10 +12,11 @@
         <p class="color-red"><?php if ($error != NULL) { echo $error; } else { echo ''; } ?></p>
 
         <?php echo form_open_multipart('studio/create/create', ['id' => 'form']); ?>
-          <button class="btn btn-lg btn-primary btn-file">
+          <div class="btn btn-lg btn-primary btn-file">
             SELECT FILE
+
             <input type="file" id="video" name="video">
-          </button>
+          </div>
         </form>
       </div>
     </div>
