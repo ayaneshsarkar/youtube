@@ -94,7 +94,7 @@ $session = \Config\Services::session();
             <a href="#" class="text-muted">
               <p class="mb-1" style="font-size: 16px; font-weight: 400;"><?= $similarVideo['name']; ?></p>
             </a>
-            <p class="text-muted mt-0" style="font-zixe: 13px">
+            <p class="text-muted mt-0" style="font-size: 13px">
             <?php $viewes = $viewModel->where('video_id', $similarVideo['id'])->countAllResults('video_id'); ?>
             <?= ($viewes == 1) ? $viewes." View" : $viewes." Viewes"; ?> • <?= date('F j, Y', strtotime($similarVideo['created_at'])); ?>
             </p>
