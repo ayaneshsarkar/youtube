@@ -7,10 +7,11 @@
   <script src="<?= base_url() ?>/assets/js/bootstrap-tagsinput.js"></script>
   <!-- <script src="<?php// base_url(); ?>/assets/js/script.js"></script> -->
   <script>
-    document.getElementById('video').addEventListener('change', function() {
-      document.getElementById('form').submit();
-      //console.log('YES');
-    });
+    if(document.getElementById('video')) {
+      document.getElementById('video').addEventListener('change', function() {
+        document.getElementById('form').submit();
+      });
+    }
   </script>
 
 
