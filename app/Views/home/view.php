@@ -25,7 +25,7 @@ $session = \Config\Services::session();
         <div class="d-flex justify-content-between align-items-center mt-2 likeContainer">
           <div class="mt-1">
             <h1 class="color-black video_text mt-1" style="font-size: 1.8rem"><?= $video['title']; ?></h1>
-            <p class="text-muted mb-1" style="font-zixe: 13px">
+            <p class="text-muted mb-1" style="font-size: 13px">
             <?= ($viewes == 1) ? $viewes." View" : $viewes." Viewes"; ?> • <?= date('F j, Y', strtotime($video['created_at'])); ?>
             </p>
             <a href="<?= base_url("subscribe/{$video['channel']}"); ?>" class="text-muted">
