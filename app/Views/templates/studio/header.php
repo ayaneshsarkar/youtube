@@ -74,10 +74,10 @@
     </ul>
   </nav>
 
-  <div class="row">
+  <div class="row" id="firstStudioRow">
 
   <!-- Aside -->
-  <div class="col-md-2 m-0 p-0 d-none d-lg-block" id="content">
+  <div class="col-md-2 m-0 p-0" id="content">
     <aside class="shadow-lg">
       <ul class="list-group">
       <a href="<?= base_url(); ?>" class="list-group-item <?= ($title == 'Home') ? 'active-list color-red' : 'color-black'; ?>">

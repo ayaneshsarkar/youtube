@@ -216,7 +216,7 @@ video, #video_cont:focus {
 
 
 
-@media(max-width: 1051px) {
+@media only screen and (max-width: 1051px) {
 
   .cardWidth {
     width: 13.827rem !important;
@@ -234,9 +234,13 @@ video, #video_cont:focus {
     width: 14.827rem;
   }
 
+  .studioFlex {
+    margin-left: 3rem !important;
+  }
+
 }
 
-@media(max-width: 990px) {
+@media(max-width: 1031px) {
   #home {
     margin-left: 0;
   }
@@ -249,17 +253,20 @@ video, #video_cont:focus {
     width: 19.827rem !important;
   }
 
-  #homeAside {
-    width: 0;
-    height: 0;
+  #homeAside, #content, aside {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .videoWidth {
-
     min-width: 40rem !important;
     max-height: 27.583rem !important;
     object-fit: cover !important;
-  
+  }
+
+  #nav {
+    display: block !important;
   }
 }
 
@@ -294,11 +301,9 @@ video, #video_cont:focus {
   }
 
   .videoWidth {
-
     min-width: 35rem !important;
     max-height: 27.583rem !important;
     object-fit: cover !important;
-  
   }
 
 }
@@ -316,11 +321,9 @@ video, #video_cont:focus {
   }
 
   .videoWidth {
-
     min-width: 30rem !important;
     max-height: 27.583rem !important;
     object-fit: cover !important;
-  
   }
 
 }
@@ -339,11 +342,9 @@ video, #video_cont:focus {
   }
 
   .videoWidth {
-
     min-width: 25rem !important;
     max-height: 27.583rem !important;
     object-fit: cover !important;
-  
   }
 
   .customCardWidth {
@@ -436,19 +437,15 @@ video, #video_cont:focus {
   }
 
   .videoWidth {
-
     min-width: 20rem !important;
     max-height: 27.583rem !important;
     object-fit: cover !important;
-  
   }
 
   .submit {
-
     flex-direction: column !important;
     justify-content: center;
     align-items: flex-start;
-
   }
 
   #nav {
@@ -458,34 +455,57 @@ video, #video_cont:focus {
    
 
   #home {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
 
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
-}
-
-.media-body {
-  flex-wrap: wrap !important;
-}
-
-  
+  .media-body {
+    flex-wrap: wrap !important;
+  }
 }
 
 @media(max-width: 340px) {
- 
   .media {
-
     flex-wrap: wrap !important;
     justify-content: center !important; 
-    
-}
+  }
 
  .display-4 {
-  
-    font-size: 2.8rem !important;
-
-
+  font-size: 2.8rem !important;
+ }
 }
 
+nav:first-of-type {
+  position: fixed !important;
+  width: 100vw !important;
+}
 
- 
+#firstStudioRow, #home {
+  margin-top: 5.5rem !important;
+  padding-top: 0 !important;
+}
+
+#viewRow {
+  margin-top: 5.7rem;
+}
+
+#firstStudioRow {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#studioFlex {
+  flex-grow: 1;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  max-width: 100%;
+}
+
+#studioFlex .dashboard {
+  justify-content: center !important;
+}
+
+#studioFlex.update {
+  margin-left: 3rem !important;
 }

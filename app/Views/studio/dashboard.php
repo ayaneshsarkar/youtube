@@ -1,7 +1,7 @@
 <?php include(APPPATH . 'Views/templates/studio/header.php'); ?>
 <?php $session = \Config\Services::session(); ?>
 
-<div class="col-lg-10 col-md-12 my-5 pr-lg-5 pr-sm-0 pr-xs-0 mb-5 pb-5">
+<div class="col-lg-10 col-md-12 pr-lg-5 pr-sm-0 pr-xs-0 mb-5 pb-5" id="studioFlex">
   <?php if (!empty($session->getFlashdata('loginSuccess'))): ?>
     <div class="mx-2 alert alert-success alert-dismissible fade show" role="success">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

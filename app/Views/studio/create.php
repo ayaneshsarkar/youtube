@@ -1,6 +1,6 @@
 <?php include(APPPATH . 'Views/templates/studio/header.php'); ?>
 <?php $validation = \Config\Services::validation(); ?>
-<div class="col-lg-9 col-md-12">
+<div class="col-lg-9 col-md-12" id="studioFlex">
   <main class="py-3">
     <div class="container">
       <h3 class="display-4 mb-2 d-none d-lg-block">Create Video</h3>

@@ -1,7 +1,7 @@
 <?php include(APPPATH . 'Views/templates/studio/header.php'); ?>
 <?php $validation = \Config\Services::validation(); ?>
 
-  <div class="col-lg-9 col-md-12 my-4 mb-5">
+  <div class="col-lg-9 col-md-12 mb-5 update" id="studioFlex">
     <div class="container">
     <div class="row">
       <div class="col-md-8 align-items-center">
@@ -37,7 +37,7 @@
           <?php echo form_submit('mysubmit', 'Update', ['class' => 'btn btn-success']) ?>
       </div>
 
-      <div class="col-md-4 align-items-center my-5">
+      <div class="col-md-4 align-items-center mt-3 mb-5">
         <div class="video_props mb-4">
           <!-- Video -->
           <div id="video_cont" class="embed-responsive embed-responsive-16by9 mt-lg-5 mb-3">

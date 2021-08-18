@@ -1,6 +1,6 @@
 <?php include(APPPATH . 'Views/templates/studio/header.php'); ?>
 
-  <div class="col-lg-9 col-md-12 mb-5">
+  <div class="col-lg-9 col-md-12 mb-5" id="studioFlex">
     <main class="pl-3 py-3 mx-md-3">
     <div class="container">
       <h3 class="display-4 mb-3">Videos</h3>

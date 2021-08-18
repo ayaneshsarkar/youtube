@@ -14,7 +14,7 @@ $session = \Config\Services::session();
   $videoId = $likeModel->where('user_id', $session->get('user_id'))->where('video_id', $video['id'])->first()['video_id'] ?? '';
 ?>
 
-    <div class="row px-4 mb-5 mt-4 pb-5">
+    <div class="row px-4 mb-5 pb-5" id="viewRow">
       <div class="col-lg-8 col-md-12 align-items-center mb-5">
         <div class="embed-responsive embed-responsive-16by9 mb-3">
           <video id="video" class="embed-responsive-item videoWidth" poster="<?= (!empty($video['thumbnail'])) ? base_url('assets/thumbnails/thumbs/'.$video['thumbnail']) : ''; ?>" controls="controls">
