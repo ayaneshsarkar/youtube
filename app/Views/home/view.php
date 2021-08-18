@@ -15,7 +15,7 @@ $session = \Config\Services::session();
 ?>
 
     <div class="row px-4 mb-5 pb-5" id="viewRow">
-      <div class="col-lg-8 col-md-12 align-items-center mb-5">
+      <div class="col-lg-8 col-md-12 align-items-center mb-5" id="viewRowFirst">
         <div class="embed-responsive embed-responsive-16by9 mb-3">
           <video id="video" class="embed-responsive-item videoWidth" poster="<?= (!empty($video['thumbnail'])) ? base_url('assets/thumbnails/thumbs/'.$video['thumbnail']) : ''; ?>" controls="controls">
             <source src="<?= base_url('assets/uploads/'.$video['video_name']); ?>"></source>
@@ -66,9 +66,9 @@ $session = \Config\Services::session();
         <hr>
       </div>
 
-      
-
-      <div class="col-lg-4 col-md-12 justify-content-start align-items-center">
+      <div class="col-lg-4 col-md-12 justify-content-start align-items-center" 
+        id="viewRowSecond"
+      >
       <?php foreach($similarVideos as $similarVideo): ?>
       <?php if ($similarVideo['video_slug'] != $video['video_slug']): ?>
         <div class="media">
