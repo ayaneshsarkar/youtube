@@ -7,20 +7,20 @@
 ?>
 
   <div id="home" class="my-5 py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12">
-          <div class="d-flex flex-wrap justify-content-start align-items-center">
+    <div class="container" id="homeContainer">
+      <div class="row" id="homeRow">
+        <div class="col-lg-12 col-md-12" id="homeRowFirst">
+          <div class="d-flex flex-wrap justify-content-start align-items-center homeRowItem">
             <?php if(!empty($videos)): ?>
             <?php foreach($videos as $video): ?>
               <div class="card m-2 cardWidth w-md-100">
 
-              <a href="<?= base_url("view/{$video['video_slug']}"); ?>">
-              <div id="video_cont" class="embed-responsive embed-responsive-16by9">
-                <video id="video" class="embed-responsive-item" poster="<?= (!empty($video['thumbnail'])) ? base_url('assets/thumbnails/thumbs/'.$video['thumbnail']) : ''; ?>">
-                  <source src="<?= base_url('assets/uploads/'.$video['video_name']); ?>"></source>
-                </video>
-              </div>
+              <a href="<?= base_url("view/{$video['video_slug']}"); ?>" class="videoLink">
+                <div id="video_cont" class="embed-responsive embed-responsive-16by9 video_cont">
+                  <video id="video" class="embed-responsive-item" poster="<?= (!empty($video['thumbnail'])) ? base_url('assets/thumbnails/thumbs/'.$video['thumbnail']) : ''; ?>">
+                    <source src="<?= base_url('assets/uploads/'.$video['video_name']); ?>"></source>
+                  </video>
+                </div>
               </a>
 
 

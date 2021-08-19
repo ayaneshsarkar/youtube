@@ -8,10 +8,10 @@
 <?php use CodeIgniter\I18n\Time; ?>
 
   <div id="home" class="my-5 my-sm-2 my-xs-2 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12">
-          <div class="d-flex flex-wrap justify-content-start align-items-center">
+    <div class="container" id="homeContainer">
+      <div class="row" id="homeRow">
+        <div class="col-lg-12 col-md-12" id="homeRowFirst">
+          <div class="d-flex flex-wrap justify-content-start align-items-center homeRowItem">
             <?php if(!empty($videos)): ?>
             <?php foreach($videos as $video): ?>
 
