@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2021 at 05:59 PM
+-- Generation Time: Aug 21, 2021 at 08:37 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.11
 
@@ -43,11 +43,11 @@ CREATE TABLE `likes` (
 
 INSERT INTO `likes` (`id`, `user_id`, `video_id`, `is_liked`, `is_disliked`, `created_at`, `updated_at`) VALUES
 (48, 12, 60, 0, 1, '2020-05-17 14:24:04', '2020-05-17 19:56:43'),
-(110, 12, 25, 0, 1, '2020-05-17 20:00:53', '2020-05-17 20:01:00'),
+(110, 12, 25, 1, 0, '2020-05-17 20:00:53', '2021-08-12 10:57:16'),
 (126, 4, 60, 0, 1, '2020-05-18 15:58:22', '2020-05-18 15:58:29'),
-(128, 12, 63, 1, 0, '2020-05-19 08:23:13', '2020-05-19 08:23:13'),
 (130, 12, 64, 1, 0, '2020-05-19 16:51:08', '2020-05-19 16:51:08'),
-(133, 21, 60, 1, 0, '2020-06-02 17:21:25', '2020-06-02 17:21:25');
+(146, 21, 74, 1, 0, '2021-08-18 18:21:18', '2021-08-18 18:21:18'),
+(147, 21, 60, 1, 0, '2021-08-19 07:49:10', '2021-08-19 07:49:10');
 
 -- --------------------------------------------------------
 
@@ -106,9 +106,9 @@ INSERT INTO `subscribers` (`id`, `user_id`, `channel_id`, `subscribed`, `not_sub
 (69, 12, 4, 1, 0, '2020-05-18 13:09:07', '2020-05-18 13:09:07'),
 (70, 21, 4, 1, 0, '2020-05-18 13:09:46', '2020-05-18 13:09:46'),
 (72, 12, 12, 1, 0, '2020-05-24 15:08:44', '2020-05-24 15:08:44'),
-(73, 21, 21, 1, 0, '2020-05-27 05:13:14', '2020-05-27 05:13:14'),
 (74, 21, 12, 1, 0, '2020-06-08 04:08:09', '2020-06-08 04:08:09'),
-(75, 4, 21, 1, 0, '2020-06-08 13:57:21', '2020-06-08 13:57:21');
+(75, 4, 21, 1, 0, '2020-06-08 13:57:21', '2020-06-08 13:57:21'),
+(77, 21, 21, 1, 0, '2021-08-21 08:16:05', '2021-08-21 08:16:05');
 
 -- --------------------------------------------------------
 
@@ -164,10 +164,11 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `user_id`, `video_name`, `video_slug`, `title`, `description`, `thumbnail`, `tags`, `is_published`, `is_unlisted`, `created_at`, `updated_at`) VALUES
-(25, 12, '1589308849_281802b8f7317603333a.mp4', 'bzurxn8fNM', 'Natalia Lafourcade | Amor, Amor de Mis Amores (En Vivo)', 'One of the great songs that I like. I love this song.', '1589309130_7700661a0605734aa352.jpg', 'music,natalia', 1, 0, '2020-05-12 13:10:49', '2020-05-19 16:49:38'),
+(25, 12, '1589308849_281802b8f7317603333a.mp4', 'bzurxn8fNM', 'Natalia Lafourcade | Amor, Amor de Mis Amores (En Vivo)', 'One of the great songs that I like. I love this song.', '1589309130_7700661a0605734aa352.jpg', 'music', 1, 0, '2020-05-12 13:10:49', '2021-08-19 07:51:08'),
 (60, 4, '1589484874_f1f0331c4948047bbe8f.mp4', 'IVS1Rspx2K', 'The HU - Wolf Totem (Official Music Video)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\r\n\r\n It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1589484900_8a8290a95ce858a35275.jpg', 'music', 1, 0, '2020-05-14 19:34:34', '2020-05-14 19:35:44'),
 (63, 12, '1589830964_4ae6506b6cb869c01809.mp4', 'cWUoQbFONd', 'Juan Gabriel - Hasta Que Te Conocí', 'Letra de Hasta Que Te Conocí\r\n\r\nNo sabia, de tristezas, ni de lágrimas\r\nNi nada, que me hicieran llorar\r\nYo sabía de cariño, de ternura\r\nPorque a mí­ desde pequeño\r\nEso me enseño mamá, eso me enseño mamá\r\nEso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nYo vivía tan distinto, algo hermoso\r\nAlgo divino, lleno de felicidad\r\nYo sabia de alegrías, la belleza de la vida\r\nPero no de soledad, pero no de soledad\r\nDe eso y muchas cosas más\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz, yo vivía muy bien\r\n\r\nHasta que te conocí\r\nVi la vida con dolor\r\nNo te miento fui feliz\r\nAunque con muy poco amor\r\nY muy tarde comprendí\r\nQue no te debía amar\r\nPorque ahora pienso en ti\r\nMás que ayer, mucho más\r\n\r\nYo jamás sufrí, yo jamás lloré\r\nYo era muy feliz\r\nPero te encontré\r\n\r\nYo no quiero que me digas\r\nSi valía o no la pena\r\nEl haberte conocido\r\nPorque no te creo más\r\nY es que tú fuiste muy mala\r\nSi muy mala conmigo\r\nPor eso no te quiero\r\nNo te quiero ver jamás', '1589831004_6d0db9249336dd3f0e05.jpg', 'music', 1, 0, '2020-05-18 19:42:44', '2020-05-18 19:43:42'),
-(64, 21, '1589891774_c8f75ade00d4a2b1573f.mp4', 'bv1czaKnA7', 'Natalia Lafourcade - Nunca Es Suficiente', 'NUNCA ES SUFICIENTE\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nYo quisiera hacerte más feliz.\r\nHoy, mañana, siempre, hasta el fin.\r\n\r\nMi corazón estalla por tu amor.\r\nY tú que crees que esto es muy normal.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar.\r\nTodas las ilusiones vagabundas que se dejan alcanzar.\r\nY no verás que lo que yo te ofrezco es algo incondicional.\r\n\r\nY tú te vas jugando a enamorar.\r\nTe enredas por las noches entre historias que nunca tienen final.\r\nTe perderás dentro de mis recuerdos por haberme hecho llorar.\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nNo ha cambiado nada mi sentir.\r\nAunque me haces mal te quiero aquí.\r\n\r\nMi corazón estalla de dolor.\r\n\r\nCómo evitar que se fracture en mil.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar\r\n\r\nMusic video by Natalia Lafourcade performing Nunca Es Suficiente. (C) 2016 Sony Music Entertainment México, S.A. de C.V.', '1589891805_cbff97fbb78567a1f006.jpg', 'music', 1, 0, '2020-05-19 12:36:14', '2020-05-19 16:57:10');
+(64, 21, '1589891774_c8f75ade00d4a2b1573f.mp4', 'bv1czaKnA7', 'Natalia Lafourcade - Nunca Es Suficiente', 'NUNCA ES SUFICIENTE\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nYo quisiera hacerte más feliz.\r\nHoy, mañana, siempre, hasta el fin.\r\n\r\nMi corazón estalla por tu amor.\r\nY tú que crees que esto es muy normal.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar.\r\nTodas las ilusiones vagabundas que se dejan alcanzar.\r\nY no verás que lo que yo te ofrezco es algo incondicional.\r\n\r\nY tú te vas jugando a enamorar.\r\nTe enredas por las noches entre historias que nunca tienen final.\r\nTe perderás dentro de mis recuerdos por haberme hecho llorar.\r\n\r\nNunca es suficiente para mí.\r\nPorque siempre quiero más de ti.\r\nNo ha cambiado nada mi sentir.\r\nAunque me haces mal te quiero aquí.\r\n\r\nMi corazón estalla de dolor.\r\n\r\nCómo evitar que se fracture en mil.\r\nAcostumbrado estás tanto al amor.\r\nQue no lo ves yo nunca he estado así.\r\n\r\nSi de casualidad me ves llorando un poco es porque yo te quiero a ti.\r\n\r\nY tú te vas jugando a enamorar\r\n\r\nMusic video by Natalia Lafourcade performing Nunca Es Suficiente. (C) 2016 Sony Music Entertainment México, S.A. de C.V.', '1589891805_cbff97fbb78567a1f006.jpg', 'music', 1, 0, '2020-05-19 12:36:14', '2020-05-19 16:57:10'),
+(74, 21, '1629274619_c24acf6bf4aa3cb3edfb.mp4', 'EnOT0N3XqJ', 'Toss A Coin To Your Witcher ', 'Oh Valley of Plenty.', '1629533081_8ea0de8376c9bc28705e.jpg', 'music', 1, 0, '2021-08-18 08:16:59', '2021-08-21 08:04:41');
 
 -- --------------------------------------------------------
 
@@ -384,7 +385,140 @@ INSERT INTO `viewes` (`id`, `user_id`, `video_id`, `created_at`, `updated_at`) V
 (680, 12, 60, '2021-02-03 19:59:13', '2021-02-03 19:59:13'),
 (681, 12, 60, '2021-02-03 19:59:15', '2021-02-03 19:59:15'),
 (690, 12, 64, '2021-02-03 20:04:03', '2021-02-03 20:04:03'),
-(691, 21, 64, '2021-02-03 20:05:44', '2021-02-03 20:05:44');
+(691, 21, 64, '2021-02-03 20:05:44', '2021-02-03 20:05:44'),
+(695, 12, 63, '2021-08-12 10:55:43', '2021-08-12 10:55:43'),
+(696, 12, 25, '2021-08-12 10:56:02', '2021-08-12 10:56:02'),
+(697, 12, 63, '2021-08-12 10:56:06', '2021-08-12 10:56:06'),
+(698, 12, 60, '2021-08-12 10:56:09', '2021-08-12 10:56:09'),
+(699, 12, 60, '2021-08-12 10:56:11', '2021-08-12 10:56:11'),
+(700, 12, 64, '2021-08-12 10:56:14', '2021-08-12 10:56:14'),
+(701, 12, 64, '2021-08-12 10:56:16', '2021-08-12 10:56:16'),
+(702, 12, 64, '2021-08-12 10:56:17', '2021-08-12 10:56:17'),
+(703, 12, 64, '2021-08-12 10:56:18', '2021-08-12 10:56:18'),
+(704, 12, 25, '2021-08-12 10:57:14', '2021-08-12 10:57:14'),
+(705, 12, 64, '2021-08-12 10:57:19', '2021-08-12 10:57:19'),
+(706, 12, 64, '2021-08-12 10:59:50', '2021-08-12 10:59:50'),
+(707, 12, 25, '2021-08-12 11:07:25', '2021-08-12 11:07:25'),
+(708, 12, 25, '2021-08-12 11:11:46', '2021-08-12 11:11:46'),
+(709, 12, 64, '2021-08-12 11:11:54', '2021-08-12 11:11:54'),
+(710, 12, 60, '2021-08-12 11:16:16', '2021-08-12 11:16:16'),
+(711, 12, 64, '2021-08-12 11:20:33', '2021-08-12 11:20:33'),
+(712, 12, 63, '2021-08-12 11:20:58', '2021-08-12 11:20:58'),
+(713, 12, 60, '2021-08-12 11:21:25', '2021-08-12 11:21:25'),
+(714, 12, 64, '2021-08-12 11:24:03', '2021-08-12 11:24:03'),
+(715, 21, 64, '2021-08-18 08:13:24', '2021-08-18 08:13:24'),
+(716, 21, 74, '2021-08-18 08:18:33', '2021-08-18 08:18:33'),
+(717, 21, 74, '2021-08-18 08:23:25', '2021-08-18 08:23:25'),
+(718, 21, 74, '2021-08-18 08:26:28', '2021-08-18 08:26:28'),
+(719, 21, 74, '2021-08-18 08:30:36', '2021-08-18 08:30:36'),
+(720, 21, 74, '2021-08-18 08:41:48', '2021-08-18 08:41:48'),
+(721, 21, 74, '2021-08-18 08:41:56', '2021-08-18 08:41:56'),
+(722, 21, 74, '2021-08-18 08:46:34', '2021-08-18 08:46:34'),
+(723, 21, 74, '2021-08-18 08:50:09', '2021-08-18 08:50:09'),
+(724, 21, 74, '2021-08-18 08:50:14', '2021-08-18 08:50:14'),
+(725, 21, 74, '2021-08-18 08:55:55', '2021-08-18 08:55:55'),
+(726, 21, 74, '2021-08-18 09:48:44', '2021-08-18 09:48:44'),
+(727, 21, 74, '2021-08-18 09:49:52', '2021-08-18 09:49:52'),
+(728, 21, 74, '2021-08-18 09:50:24', '2021-08-18 09:50:24'),
+(729, 21, 74, '2021-08-18 09:50:32', '2021-08-18 09:50:32'),
+(730, 21, 74, '2021-08-18 09:50:39', '2021-08-18 09:50:39'),
+(731, 21, 25, '2021-08-18 09:52:54', '2021-08-18 09:52:54'),
+(732, 21, 74, '2021-08-18 09:55:10', '2021-08-18 09:55:10'),
+(733, 21, 60, '2021-08-18 09:55:16', '2021-08-18 09:55:16'),
+(734, 21, 25, '2021-08-18 09:57:28', '2021-08-18 09:57:28'),
+(735, 21, 74, '2021-08-18 18:09:58', '2021-08-18 18:09:58'),
+(736, 21, 74, '2021-08-18 18:15:38', '2021-08-18 18:15:38'),
+(737, 21, 74, '2021-08-18 18:22:21', '2021-08-18 18:22:21'),
+(738, 21, 74, '2021-08-18 18:22:24', '2021-08-18 18:22:24'),
+(739, 21, 74, '2021-08-18 18:24:39', '2021-08-18 18:24:39'),
+(740, 21, 74, '2021-08-18 18:25:24', '2021-08-18 18:25:24'),
+(741, 21, 74, '2021-08-18 18:25:41', '2021-08-18 18:25:41'),
+(742, 21, 74, '2021-08-18 18:26:45', '2021-08-18 18:26:45'),
+(743, 21, 74, '2021-08-18 18:27:01', '2021-08-18 18:27:01'),
+(744, 21, 74, '2021-08-18 18:27:02', '2021-08-18 18:27:02'),
+(745, 21, 74, '2021-08-18 18:27:04', '2021-08-18 18:27:04'),
+(746, 21, 74, '2021-08-18 18:28:26', '2021-08-18 18:28:26'),
+(747, 21, 74, '2021-08-18 18:30:06', '2021-08-18 18:30:06'),
+(748, 21, 74, '2021-08-18 18:30:31', '2021-08-18 18:30:31'),
+(749, 21, 74, '2021-08-18 18:30:58', '2021-08-18 18:30:58'),
+(750, 21, 74, '2021-08-18 18:32:12', '2021-08-18 18:32:12'),
+(751, 21, 74, '2021-08-18 18:32:26', '2021-08-18 18:32:26'),
+(752, 21, 74, '2021-08-18 18:33:07', '2021-08-18 18:33:07'),
+(753, 21, 74, '2021-08-18 18:34:10', '2021-08-18 18:34:10'),
+(754, 21, 74, '2021-08-18 18:34:17', '2021-08-18 18:34:17'),
+(755, 21, 74, '2021-08-18 18:36:20', '2021-08-18 18:36:20'),
+(756, 21, 74, '2021-08-18 18:36:24', '2021-08-18 18:36:24'),
+(757, 21, 74, '2021-08-18 18:38:52', '2021-08-18 18:38:52'),
+(758, 21, 74, '2021-08-18 18:38:54', '2021-08-18 18:38:54'),
+(759, 21, 74, '2021-08-18 18:39:07', '2021-08-18 18:39:07'),
+(760, 21, 74, '2021-08-18 18:41:05', '2021-08-18 18:41:05'),
+(761, 21, 74, '2021-08-18 18:41:54', '2021-08-18 18:41:54'),
+(762, 21, 74, '2021-08-18 18:42:20', '2021-08-18 18:42:20'),
+(763, 21, 74, '2021-08-18 18:42:41', '2021-08-18 18:42:41'),
+(764, 21, 74, '2021-08-18 18:42:47', '2021-08-18 18:42:47'),
+(765, 21, 74, '2021-08-18 18:43:11', '2021-08-18 18:43:11'),
+(766, 21, 74, '2021-08-18 18:43:51', '2021-08-18 18:43:51'),
+(767, 21, 74, '2021-08-18 18:44:32', '2021-08-18 18:44:32'),
+(768, 21, 74, '2021-08-18 18:44:47', '2021-08-18 18:44:47'),
+(769, 21, 74, '2021-08-18 18:45:00', '2021-08-18 18:45:00'),
+(770, 21, 60, '2021-08-18 18:45:05', '2021-08-18 18:45:05'),
+(771, 21, 60, '2021-08-18 18:45:36', '2021-08-18 18:45:36'),
+(772, 21, 60, '2021-08-18 18:46:17', '2021-08-18 18:46:17'),
+(773, 21, 25, '2021-08-18 18:46:32', '2021-08-18 18:46:32'),
+(774, 21, 63, '2021-08-18 18:47:02', '2021-08-18 18:47:02'),
+(775, 21, 74, '2021-08-18 18:47:05', '2021-08-18 18:47:05'),
+(776, 21, 74, '2021-08-18 18:47:46', '2021-08-18 18:47:46'),
+(777, 21, 63, '2021-08-18 18:48:06', '2021-08-18 18:48:06'),
+(778, 21, 63, '2021-08-18 18:48:49', '2021-08-18 18:48:49'),
+(779, 21, 63, '2021-08-18 18:49:08', '2021-08-18 18:49:08'),
+(780, 21, 63, '2021-08-18 18:49:52', '2021-08-18 18:49:52'),
+(781, 21, 63, '2021-08-18 18:50:40', '2021-08-18 18:50:40'),
+(782, 21, 74, '2021-08-18 18:50:52', '2021-08-18 18:50:52'),
+(783, 21, 60, '2021-08-18 18:51:14', '2021-08-18 18:51:14'),
+(784, 21, 60, '2021-08-18 18:51:36', '2021-08-18 18:51:36'),
+(785, 21, 60, '2021-08-18 18:51:56', '2021-08-18 18:51:56'),
+(786, 21, 60, '2021-08-18 18:52:35', '2021-08-18 18:52:35'),
+(787, 21, 63, '2021-08-18 18:52:39', '2021-08-18 18:52:39'),
+(788, 21, 25, '2021-08-18 18:52:44', '2021-08-18 18:52:44'),
+(789, 21, 63, '2021-08-18 18:52:55', '2021-08-18 18:52:55'),
+(790, 21, 60, '2021-08-18 18:53:00', '2021-08-18 18:53:00'),
+(791, 21, 64, '2021-08-18 18:53:04', '2021-08-18 18:53:04'),
+(792, 21, 60, '2021-08-18 18:53:27', '2021-08-18 18:53:27'),
+(793, 21, 74, '2021-08-18 18:53:30', '2021-08-18 18:53:30'),
+(794, 21, 74, '2021-08-18 18:55:50', '2021-08-18 18:55:50'),
+(795, 21, 74, '2021-08-18 18:55:58', '2021-08-18 18:55:58'),
+(796, 21, 74, '2021-08-18 18:56:39', '2021-08-18 18:56:39'),
+(797, 21, 74, '2021-08-18 18:58:07', '2021-08-18 18:58:07'),
+(798, 21, 74, '2021-08-18 18:59:15', '2021-08-18 18:59:15'),
+(799, 21, 74, '2021-08-18 18:59:36', '2021-08-18 18:59:36'),
+(800, 21, 74, '2021-08-18 19:03:55', '2021-08-18 19:03:55'),
+(801, 21, 74, '2021-08-18 19:06:05', '2021-08-18 19:06:05'),
+(802, 21, 74, '2021-08-18 19:13:49', '2021-08-18 19:13:49'),
+(803, 21, 60, '2021-08-19 07:49:04', '2021-08-19 07:49:04'),
+(804, 21, 63, '2021-08-19 07:49:14', '2021-08-19 07:49:14'),
+(805, 21, 74, '2021-08-19 07:49:16', '2021-08-19 07:49:16'),
+(806, 21, 60, '2021-08-19 07:49:17', '2021-08-19 07:49:17'),
+(807, 21, 64, '2021-08-19 07:49:18', '2021-08-19 07:49:18'),
+(808, 21, 63, '2021-08-19 07:49:21', '2021-08-19 07:49:21'),
+(809, 21, 25, '2021-08-19 07:49:23', '2021-08-19 07:49:23'),
+(810, 12, 25, '2021-08-19 07:51:10', '2021-08-19 07:51:10'),
+(811, 21, 74, '2021-08-19 09:17:31', '2021-08-19 09:17:31'),
+(812, 21, 74, '2021-08-19 09:17:36', '2021-08-19 09:17:36'),
+(813, 21, 74, '2021-08-21 07:53:20', '2021-08-21 07:53:20'),
+(814, 21, 74, '2021-08-21 07:54:31', '2021-08-21 07:54:31'),
+(815, 21, 74, '2021-08-21 07:55:31', '2021-08-21 07:55:31'),
+(816, 21, 74, '2021-08-21 07:55:40', '2021-08-21 07:55:40'),
+(817, 21, 74, '2021-08-21 08:02:46', '2021-08-21 08:02:46'),
+(818, 21, 74, '2021-08-21 08:04:43', '2021-08-21 08:04:43'),
+(819, 21, 74, '2021-08-21 08:05:06', '2021-08-21 08:05:06'),
+(820, 21, 25, '2021-08-21 08:05:27', '2021-08-21 08:05:27'),
+(821, 21, 74, '2021-08-21 08:06:12', '2021-08-21 08:06:12'),
+(822, 21, 74, '2021-08-21 08:06:15', '2021-08-21 08:06:15'),
+(823, 21, 74, '2021-08-21 08:08:28', '2021-08-21 08:08:28'),
+(824, 21, 25, '2021-08-21 08:13:27', '2021-08-21 08:13:27'),
+(825, 21, 25, '2021-08-21 08:13:31', '2021-08-21 08:13:31'),
+(826, 21, 25, '2021-08-21 08:13:34', '2021-08-21 08:13:34'),
+(827, 21, 60, '2021-08-21 08:35:23', '2021-08-21 08:35:23');
 
 --
 -- Indexes for dumped tables
@@ -440,7 +574,7 @@ ALTER TABLE `viewes`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -452,7 +586,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -464,13 +598,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `viewes`
 --
 ALTER TABLE `viewes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=694;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=828;
 
 --
 -- Constraints for dumped tables
