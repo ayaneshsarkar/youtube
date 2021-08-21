@@ -38,13 +38,13 @@
   </p>
 </div>
 
-<div class="col-12">
+<div class="col-12" id="subscribeColumn">
   <div class="d-flex flex-wrap justify-content-start align-items-center mb-5 pb-5">
     <?php foreach($videos as $video): ?>
       <div class="card m-2 cardWidth w-md-100">
 
-      <a href="<?= base_url("view/{$video['video_slug']}"); ?>">
-      <div id="video_cont" class="embed-responsive embed-responsive-16by9">
+      <a class="w-100" href="<?= base_url("view/{$video['video_slug']}"); ?>">
+      <div id="video_cont" class="embed-responsive embed-responsive-16by9 video_cont">
         <video id="video" class="embed-responsive-item" poster="<?= (!empty($video['thumbnail'])) ? base_url('assets/thumbnails/thumbs/'.$video['thumbnail']) : ''; ?>">
           <source src="<?= base_url('assets/uploads/'.$video['video_name']); ?>"></source>
         </video>

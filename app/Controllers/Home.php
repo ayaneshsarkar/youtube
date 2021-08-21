@@ -23,7 +23,7 @@
       }
 
       $data['videos'] =
-       $videoModel->select('videos.id, videos.thumbnail, videos.title, videos.video_slug, videos.video_name, users.username AS name, videos.created_at')
+       $videoModel->select('videos.id, videos.thumbnail, videos.title, videos.video_slug, videos.video_name, users.username AS name, users.channel_id as channel, videos.created_at')
       ->join('users', 'users.id = videos.user_id')
       ->where('videos.is_published', 1)
       ->orderBy('videos.updated_at', 'DESC')

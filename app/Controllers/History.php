@@ -27,7 +27,8 @@
       $currentUserId = $viewModel->where('user_id', $session->get('user_id'))->first()['user_id'];
 
       $data['videos'] = 
-          $videoModel->select('videos.id, videos.thumbnail, videos.title, videos.video_slug, videos.video_name, videos.description, videos.created_at, videos.tags')
+          $videoModel->select('videos.id, videos.thumbnail, videos.title, videos.video_slug, videos.video_name, videos.description, videos.created_at, 
+          users.channel_id as channel, videos.tags')
       ->join('viewes', 'viewes.video_id = videos.id')
       ->join('users', 'users.id = videos.user_id')
       ->select('users.username AS name')

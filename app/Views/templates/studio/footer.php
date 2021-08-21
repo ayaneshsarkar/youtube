@@ -12,6 +12,24 @@
         document.getElementById('form').submit();
       });
     }
+
+    var videoThumbnail = document.getElementById('videoThumbnail');
+    var videoThumbnailLabel = document.getElementById('videoThumbnailLabel');
+
+    if(videoThumbnail && videoThumbnailLabel) {
+      var videoThumbnailLabelText = videoThumbnailLabel.textContent;
+
+      videoThumbnail.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+
+        if(file) {
+          videoThumbnailLabel.textContent = file.name;
+        } else {
+          videoThumbnailLabel.textContent = videoThumbnailLabelText || 'Choose Thumbnail Image';
+        }
+      })
+    }
+
   </script>
 
 

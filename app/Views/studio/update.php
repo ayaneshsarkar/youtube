@@ -22,8 +22,12 @@
           </div>
           <!-- Thumbnail -->
           <div class="custom-file mb-4">
-            <input type="file" name="thumbnail" class="custom-file-input">
-            <label class="custom-file-label" for="thumbnail"><?= (!empty($video['thumbnail'])) ? $video['thumbnail'] : 'Choose Thumbnail Image'; ?></label>
+            <input type="file" name="thumbnail" class="custom-file-input" id="videoThumbnail">
+            <label class="custom-file-label" for="thumbnail" id="videoThumbnailLabel">
+              <?= 
+                (!empty($video['thumbnail'])) ? $video['thumbnail'] : 'Choose Thumbnail Image'; 
+              ?>
+            </label>
             <span class="invalid-feedback d-block"><?php echo $validation->getError('thumbnail'); ?></span>
             <span class="invalid-feedback d-block"><?= (!empty($error)) ? $error : ''; ?></span>
           </div>
@@ -48,7 +52,9 @@
           <!-- Open Video -->
           <div class="open_video mb-4 pl-2">
             <p class="text-muted mb-1">Video Link</p>
-            <a href="#">Open Video</a>
+            <a href="<?= base_url() . "/view/" . $video['video_slug'] ?>" target="_blank">
+              Open Video
+            </a>
           </div>
           <!-- Video Name -->
           <div class="video_name pl-2">

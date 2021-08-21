@@ -35,7 +35,9 @@
                     ?>
                     <?= word_limiter($str, 3); ?>
                   </h6>
-                  <a href="#" class="text-muted card-text m-0"><?= $video['name']; ?></a>
+                  <a href="<?= base_url("/subscribe/{$video['channel']}") ?>" class="text-muted card-text m-0">
+                    <?= $video['name']; ?>
+                  </a>
                   
                   <p class="text-muted card-text m-0">
                     <?php $viewes = $viewModel->where('video_id', $video['id'])->countAllResults('video_id'); ?>

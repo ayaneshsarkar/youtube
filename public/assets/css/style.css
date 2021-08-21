@@ -513,6 +513,10 @@ video, #video_cont:focus {
   #homeRowFirst .homeRowItem .cardWidth #videoLink #video_cont {
     height: 16rem !important;
   }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 16rem !important;
+  }
 }
 
 nav:first-of-type {
@@ -554,12 +558,24 @@ nav:first-of-type {
   justify-content: space-around !important;
 }
 
+#ulNav .nav-item:first-of-type {
+  margin-left: 0 !important;
+}
+
+#ulNav .nav-item .list-group-item {
+  font-size: 1rem !important;
+}
+
 #userContainer {
   margin-top: 5.5rem !important;
 }
 
 .homeRowItem {
   /* justify-content: center !important; */
+}
+
+#subscribeContainer {
+  margin-top: 7rem;
 }
 
 @media only screen and (max-width: 500px) {
@@ -629,6 +645,27 @@ nav:first-of-type {
   #homeRowFirst .homeRowItem .cardWidth .videoLink .video_cont {
     height: 17.4rem;
   }
+
+  #subscribeContainer {
+    margin-top: 6rem;
+  }
+
+  #subscribeColumn {
+    padding: 0 !important;
+  }
+
+  #subscribeColumn .cardWidth {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 17.7rem;
+  }
+
+  #subscribeColumn .cardWidth .card-body {
+    padding: 1rem 15px 2rem 15px !important;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -645,6 +682,10 @@ nav:first-of-type {
   #homeRowFirst .homeRowItem .cardWidth #videoLink #video_cont {
     height: 14rem !important;
   }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 14rem !important;
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -659,6 +700,10 @@ nav:first-of-type {
   #homeRowFirst .homeRowItem .cardWidth #videoLink #video_cont {
     height: 13rem !important;
   }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 13rem !important;
+  }
 }
 
 @media only screen and (max-width: 330px) {
@@ -669,6 +714,10 @@ nav:first-of-type {
   #homeRowFirst .homeRowItem .cardWidth #videoLink #video_cont {
     height: 12rem !important;
   }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 12rem !important;
+  }
 }
 
 @media only screen and (max-width: 300px) {
@@ -677,6 +726,16 @@ nav:first-of-type {
   }
 
   #homeRowFirst .homeRowItem .cardWidth #videoLink #video_cont {
+    height: 10rem !important;
+  }
+
+  #subscribeColumn .cardWidth .video_cont {
+    height: 11rem !important;
+  }
+}
+
+@media only screen and (max-width: 285px) {
+  #subscribeColumn .cardWidth .video_cont {
     height: 10rem !important;
   }
 }

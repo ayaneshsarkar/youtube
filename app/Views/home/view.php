@@ -91,7 +91,7 @@ $session = \Config\Services::session();
               ?>
               <?= word_limiter($str, 3); ?>
             </h5>
-            <a href="#" class="text-muted">
+            <a href="<?= base_url("/subscribe/{$video['channel']}") ?>" class="text-muted">
               <p class="mb-1" style="font-size: 16px; font-weight: 400;"><?= $similarVideo['name']; ?></p>
             </a>
             <p class="text-muted mt-0" style="font-size: 13px">
